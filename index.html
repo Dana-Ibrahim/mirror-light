@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Mirror</title>
+    <style>
+        body {{
+            background-color: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }}
+        #mirror {{
+            cursor: pointer;
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        }}
+        p {{
+            position: absolute;
+            bottom: 20px;
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
+            color: #aaa;
+        }}
+    </style>
+</head>
+<body>
+    <img id="mirror" src="mirror-dimmed.png" alt="Mirror" onclick="toggleMirror()" />
+    <p>Click the mirror to turn on the light</p>
+    <script>
+        let isLit = false;
+        function toggleMirror() {{
+            const mirror = document.getElementById('mirror');
+            mirror.src = isLit ? 'mirror-dimmed.png' : 'mirror-lit.png';
+            isLit = !isLit;
+        }}
+    </script>
+</body>
+</html>
